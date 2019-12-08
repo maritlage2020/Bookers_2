@@ -1,14 +1,11 @@
 Rails.application.routes.draw do
   devise_for :users
-  	get 'user/sign_up' => 'devise/registrations#new'
 
-  get 'userinfos/new'
-  get '/about' => "book#about"
+  resources :users, only:[:index, :show, :edit, :update]
+  resources :books
+  get "about" => "root#about"
 
+  # / へのルーティング
   root 'root#top'
-
-	resources :users, only: [:index,:show, :edit,:update]
-	resources :books
-	resources :book_images,only:[:new,:create,:index,:show]
-
+  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

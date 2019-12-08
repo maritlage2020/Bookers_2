@@ -13,5 +13,49 @@
  *= require_tree .
  *= require_self
  */
-     @import "bootstrap-sprockets";
+
+    @import "bootstrap-sprockets";
     @import "bootstrap";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  color: #222;
+}
+
+.navbar-custom .navbar-text {
+  color: #fff;
+  font-size: 20px;
+}
+
+.navbar-custom .navbar-nav {
+  font-size: 13px;
+}
+
+a {
+  color: #666;
+  display: inline-block;
+}
+
+a:hover {
+  background-color: #000;
+  color: #337ab7;
+}
+
+.error_massage_color {
+  color: red;
+}
+
+.error_container {
+  padding-left: 50px;
+}
+
+/* device/password/new */
+.pass-btn {
+  margin: 10px 0;
+}
+
+.con-box  {
+	margin-top: 50px;
+}
