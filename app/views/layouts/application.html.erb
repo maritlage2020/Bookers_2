@@ -1,8 +1,10 @@
+<!-- メッセージ -->
 <% if flash[:notice] %>
   <div class="text-success">
     <%= flash[:notice] %>
   </div>
 <% end %>
+<!-- メッセージここまで -->
 
 <!DOCTYPE html>
 <html>
@@ -15,23 +17,15 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-
-    <body>
-    <header class="navbar navbar-fixed-top navbar-inverse">
-    <div class="container">
-    <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbarEexample7">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-      </button>
-        <div class="navbar-left">
-          <span class="navbar-text">Bookers</span>
-        </div>
-
-    <!-- Collect the nav links, forms, and other content for toggling -->
+  <body>
+    <!-- bootstrapを使ったナビゲーションバー（反転色） -->
+    <!-- navbar-static-top　を入れることで角丸は解除（本来の使い方とは違う？） -->
+    <header class="navbar navbar-fixed-top navbar-inverse navbar-static-top navbar-custom">
+      <div class="container">
+          <div class="collapse navbar-collapse" id="navbarEexample7">
+          <div class="navbar-left">
+            <span class="navbar-text">Bookers</span>
+          </div>
             <ul class="nav navbar-nav navbar-right">
               <% if user_signed_in? %>
                 <li><%= link_to  "  Home", user_path(current_user.id), class: "home glyphicon glyphicon-home" %></li>
@@ -40,23 +34,21 @@
                 <li><%= link_to  "  logout", destroy_user_session_path, class: "logout glyphicon glyphicon-log-out", method: :delete %></li>
               <% else %>
                 <li><%= link_to  "  Home", "/", class: "home glyphicon glyphicon-home" %></li>
-                <li><%= link_to  "  About", "/about", class: "about glyphicon glyphicon-link" %></li>
-                <li><%= link_to "  sign Up", new_user_registration_path, class: "sign_up glyphicon glyphicon-edit" %></li>
-                <li><%= link_to "  login", new_user_session_path, class: "sign_in glyphicon glyphicon-log-in" %></li>
+                <li><%= link_to  "  About", "/home/about", class: "about glyphicon glyphicon-link" %></li>
+                <li><%= link_to "  Sign Up", new_user_registration_path, class: "sign_up glyphicon glyphicon-edit" %></li>
+                <li><%= link_to "  Log in", new_user_session_path, class: "sign_in glyphicon glyphicon-log-in" %></li>
               <% end %>
             </ul>
-    </div><!-- /.navbar-collapse -->
-  </div><!-- /.container-fluid -->
-    </header>>
-    <div class="container con-box">
-       <%= yield %>
-    </div>
-  <footer>
-    <div class="comtainer">
-      <div class="col-xs-3 col-xs-offset-9">
-        <p>CopyRight Infratop.inc</p>
-      </div>
-    </div>
-  </footer>
+         </div>
+       </div>
+    </header>
+
+   <!-- コンテンツ -->
+   <div class="container">
+      <%= yield %>
+      <p class="pull-right">CopyRight Infratop.inc</p>
+  </div>
+   <!-- コンテンツここまで -->
+
   </body>
 </html>

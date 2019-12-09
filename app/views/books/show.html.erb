@@ -25,11 +25,11 @@
       <h2>Book detail</h2>
         <table class="table">
             <tr>
-              <td><%= attachment_image_tag @book.user, :user_image, :fill, 100, 100, fallback: "no_image.jpg" %>
+              <td><%= attachment_image_tag @book.user, :profile_image, :fill, 100, 100, fallback: "no_image.jpg" %>
                 <p><%= link_to @book.user.name, user_path(@book.user.id), class: "user_#{@book.user.id}" %></p>
                 </td>
               <td><%= link_to @book.title, book_path(@book.id), class: "book_#{@book.id}" %></td>
-              <td><%= @book.option %></td>
+              <td><%= @book.body %></td>
                 <% if @book.user == current_user %>
                   <td><%= link_to "Edit", edit_book_path(@book.id), class: "edit_book_#{@book.id} btn btn-success btn-sm btn_txt_color" %></td>
                   <td><%= link_to "Destroy", book_path(@book.id), class: "destroy_book_#{@book.id} btn btn-danger btn-sm btn_txt_color", method: :delete, data: {confirm: "本当に消しますか？"} %></td>

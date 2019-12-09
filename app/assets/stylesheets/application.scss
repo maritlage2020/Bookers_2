@@ -17,22 +17,21 @@
     @import "bootstrap-sprockets";
     @import "bootstrap";
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  color: #222;
+
+body {
+  padding-top: 70px;
 }
 
+/* ナビゲーションバー */
 .navbar-custom .navbar-text {
   color: #fff;
   font-size: 20px;
 }
-
 .navbar-custom .navbar-nav {
   font-size: 13px;
 }
 
+/* リンクの背景色を変更 */
 a {
   color: #666;
   display: inline-block;
@@ -43,10 +42,10 @@ a:hover {
   color: #337ab7;
 }
 
+/* エラーメッセージ */
 .error_massage_color {
   color: red;
 }
-
 .error_container {
   padding-left: 50px;
 }
@@ -54,8 +53,4 @@ a:hover {
 /* device/password/new */
 .pass-btn {
   margin: 10px 0;
-}
-
-.con-box  {
-	margin-top: 50px;
 }
